@@ -3,12 +3,18 @@ let titulo = document.querySelector("h1");
 //mostra no console do navegador a variável título
 console.log(titulo);
 //modifica o valor do título para a frase "Fica grandão birlllll"-
-titulo.textContent = "Fica grandão birlllll";
-
+titulo.textContent = "Professor caio escreveu algo aqui";
 //----------aqui vamos mexer na tabela de imc------
-//---------- armazena na variavel paciente as informações dp primeiro paciente 
-let paciente = document.querySelector("#primeiro-paciente");
-console.log(paciente); 
+//---------- armazena no ARRAY paciente as informações de toos os pacientes
+let pacientes = document.querySelectorAll(".paciente");
+//console.log(paciente); 
+//loop for para percorrer o ARRAY
+
+
+for(let i = 0; i < pacientes.length; i++){
+    let paciente = pacientes[i];
+    console.log(paciente);
+
 // armazena somente as colunas de peso e altura
 let tdPeso = paciente.querySelector(".info-peso");
 let tdAltura = paciente.querySelector(".info-altura");
@@ -39,9 +45,10 @@ if(pesoEhValido === true && alturaEhValido === true){
     //realiza o calculo do imc
     let imc = peso / (altura * altura);
     console.log(imc);
-    tdImc.textContent = imc;
+    tdImc.textContent = imc.toFixed(2);
 } else {
-    tdImc.textContent = "Peso e/ou altura inválidos";
-    
+    //informa que os valores informados para peso e/ou altura estão incorretos 
+    tdImc.textContent = "Peso e/ou altura inválidos!";
+}
 }
 
